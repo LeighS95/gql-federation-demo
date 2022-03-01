@@ -1,0 +1,10 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Stephen Leigh",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts"
+  }
+}
