@@ -18,6 +18,6 @@ const server = new ApolloServer({
     introspection: process.env.NODE_ENV !== 'production' ? true : false
 });
 
-server.listen(4002).then(({ url }) => {
+server.listen(4004).then(({ url }) => {
     console.log(`Messaging Service Ready at ${url}`);
 });
