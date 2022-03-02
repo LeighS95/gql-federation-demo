@@ -15,6 +15,11 @@ export const authResolver: GraphQLResolverMap = {
     User: {
         __resolveReference(ref: any) {
             return fetch(`${apiUrl}/users/${ref.id}`).then(res => res.json());
+        },
+        campaigns(user) {
+            if (user.role === 'admin') return fetch(`${apiUrl}/campaigns`).then(res => res.json());
+
+            return user.campaigns.map((id: any) => ({ __typename: "User", id }));
         }
     }
 }

@@ -10,5 +10,10 @@ export const typeDefs = gql`
         id: ID!
         username: String
         role: String
+        campaigns: [Campaign]
+    }
+
+    extend type Campaign @key(fields: "id") {
+        id: ID! @external
     }
 `;

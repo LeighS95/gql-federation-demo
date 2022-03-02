@@ -3,7 +3,8 @@ import { ApolloGateway } from '@apollo/gateway';
 
 const gateway = new ApolloGateway({
     serviceList: [
-        { name: 'Auth', url: 'http://localhost:4001' }
+        { name: 'Auth', url: 'http://localhost:4001' },
+        { name: 'Campaign', url: 'http://localhost:4003' }
     ]
 });
 const server = new ApolloServer({
