@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently -k npm:start:*",
-    "start:rest": "json-server -q db.json",
+    "start:rest": "json-server -p 5000 -q db.json",
     "start:auth": "ts-node ./packages/auth/src/index.ts",
     "start:campaign": "ts-node ./packages/campaign/src/index.ts",
     "start:project": "ts-node ./packages/project/src/index.ts",

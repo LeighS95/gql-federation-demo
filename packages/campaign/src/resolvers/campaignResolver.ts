@@ -1,7 +1,7 @@
 import { GraphQLResolverMap } from "apollo-graphql";
 import fetch from "cross-fetch";
 
-const apiUrl = "http://localhost:3000";
+const apiUrl = "http://localhost:5000";
 
 export const campaignResolver: GraphQLResolverMap = {
     Query: {
