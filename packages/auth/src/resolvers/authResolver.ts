@@ -1,5 +1,5 @@
 import { GraphQLResolverMap } from "apollo-graphql";
-import fetch from "node-fetch";
+import fetch from "cross-fetch";
 
 const apiUrl = "http://localhost:3000";
 

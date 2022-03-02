@@ -5,7 +5,7 @@
   "author": "Stephen Leigh",
   "license": "MIT",
   "scripts": {
-    "server-rest": "json-server -q db.json",
+    "start-rest": "json-server -q db.json",
     "start-gateway": "ts-node ./packages/gateway/src/index.ts",
     "start-auth": "ts-node ./packages/auth/src/index.ts",
     "start-all": "yarn start-auth && yarn start-gateway"
@@ -14,10 +14,11 @@
     "@apollo/gateway": "^0.42.3",
     "@apollo/subgraph": "^0.1.2",
     "apollo-server": "^3.4.0",
+    "cross-fetch": "^3.1.5",
     "gql": "^1.1.2",
     "graphql": "^15.6.1",
     "json-server": "^0.17.0",
-    "node-fetch": "^3.2.1"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
