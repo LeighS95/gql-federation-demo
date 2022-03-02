@@ -4,58 +4,86 @@
             "id": 1,
             "username": "stephen",
             "role": "user",
-            "campaigns": [
+            "projects": [
                 1,
-                2,
-                3
+                2
             ]
         },
         {
             "id": 2,
             "username": "pitra",
             "role": "user",
-            "campaigns": [
-                4,
-                5
+            "projects": [
+                3
             ]
         },
         {
             "id": 3,
             "username": "admin",
             "role": "admin",
-            "campaigns": []
+            "projects": []
         }
     ],
     "campaigns": [
         {
             "id": 1,
             "name": "campaign no 1",
+            "from": "stephen@uplandsoftware.com",
             "startDate": "2021-04-04T12:00:01.000Z",
             "endDate": "2021-05-04T21:57:21.000Z"
         },
         {
             "id": 2,
             "name": "campaign no 2",
+            "from": "stephen@uplandsoftware.com",
             "startDate": "2021-05-04T12:00:01.000Z",
             "endDate": "2021-06-04T21:57:21.000Z"
         },
         {
             "id": 3,
             "name": "campaign no 3",
+            "from": "stephen@uplandsoftware.com",
             "startDate": "2021-04-04T12:00:01.000Z",
             "endDate": "2021-05-04T21:57:21.000Z"
         },
         {
             "id": 4,
             "name": "campaign no 4",
+            "from": "pitra@uplandsoftware.com",
             "startDate": "2021-04-04T12:00:01.000Z",
             "endDate": "2021-05-04T21:57:21.000Z"
         },
         {
             "id": 5,
             "name": "campaign no 5",
+            "from": "pitra@uplandsoftware.com",
             "startDate": "2021-04-04T12:00:01.000Z",
             "endDate": "2021-05-04T21:57:21.000Z"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "name": "Project 1",
+            "campaigns": [
+                1,
+                2
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Project 2",
+            "campaigns": [
+                3
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Project 3",
+            "campaigns": [
+                4,
+                5
+            ]
         }
     ]
 }

@@ -9,6 +9,7 @@ export const typeDefs = gql`
     type Campaign @key(fields: "id") {
         id: ID!
         name: String
+        from: String
         startDate: String
         endDate: String
     }
