@@ -7,6 +7,9 @@ export const authResolver: GraphQLResolverMap = {
     Query: {
         user(_, { id }) {
             return fetch(`${apiUrl}/users/${id}`).then(res => res.json());
+        },
+        users() {
+            return fetch(`${apiUrl}/users`).then(res => res.json());
         }
     },
     User: {
