@@ -8,9 +8,10 @@ const server = new ApolloServer({
     schema: buildSubgraphSchema([
         {
             typeDefs,
-            resolvers
+            resolvers,
         }
-    ])
+    ]),
+    introspection: process.env.NODE_ENV !== 'production'
 });
 
 server.listen(4001).then(({ url }) => {

@@ -1,15 +1,39 @@
+import { sign } from 'jsonwebtoken';
+import { accounts } from '../data/accounts';
+
 export const authResolver = {
-    Query: {
-        user() {
-            return { id: '1', username: '@user' }
+    Account: {
+        __resolveReference(object:any) {
+            return accounts.find(account => account.id === object.id);
         }
     },
-    User: {
-        __resolveReference(
-            user: any,
-            { fetchUserById }: any
+    Query: {
+        account(
+            parent:any,
+            args:any,
+            context:any,
+            info:any
         ) {
-            return fetchUserById(user.id);
+            return accounts.find(account => account.id === args.id ? account : null);
+        },
+        accounts() {
+            return accounts;
+        },
+    },
+    Mutation: {
+        login(
+            parent:any,
+            args:any,
+            context:any,
+            info:any
+        ) {
+            const account = accounts.find(account => account.email === args.email && account.password === args.password);
+
+            if(!account) throw new Error('Account not found');
+
+            return {
+                token: sign({ ...account }, 'secret', { expiresIn: '1h' })
+            }
         }
     }
 }

@@ -5,9 +5,11 @@
   "author": "Stephen Leigh",
   "license": "MIT",
   "scripts": {
-    "start-gateway": "ts-node ./packages/gateway/src/index.ts",
-    "start-auth": "ts-node ./packages/auth/src/index.ts",
-    "start-all": "yarn start-auth && yarn start-gateway"
+    "start:gateway": "ts-node ./packages/gateway/src/index.ts",
+    "start:auth": "ts-node ./packages/auth/src/index.ts",
+    "start:messaging": "ts-node ./packages/messaging-service/src/index.ts",
+    "start-all": "concurrently \"yarn start-auth\" \"yarn start-messaging\" \"yarn start-gateway\"",
+    "start": "concurrently -k yarn:start:*"
   },
   "dependencies": {
     "@apollo/gateway": "^0.42.3",
@@ -20,6 +22,7 @@
     "@types/graphql": "^14.5.0",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^16.11.1",
+    "concurrently": "^7.0.0",
     "lerna": "^4.0.0",
     "ts-node": "^10.3.0",
     "typescript": "^4.4.4"

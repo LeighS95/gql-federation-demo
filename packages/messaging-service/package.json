@@ -1,13 +1,11 @@
 {
-  "name": "gateway",
+  "name": "messaging-service",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Stephen Leigh",
   "license": "MIT",
-  "scripts": {
-    "start": "ts-node index.ts"
-  },
   "dependencies": {
+    "@apollo/federation": "^0.35.1",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
