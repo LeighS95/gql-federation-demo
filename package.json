@@ -8,6 +8,7 @@
     "start": "concurrently -k npm:start:*",
     "start:rest": "json-server -q db.json",
     "start:auth": "ts-node ./packages/auth/src/index.ts",
+    "start:campaign": "ts-node ./packages/campaign/src/index.ts",
     "start:gateway": "ts-node ./packages/gateway/src/index.ts"
   },
   "dependencies": {
