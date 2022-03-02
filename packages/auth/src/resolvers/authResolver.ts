@@ -1,15 +1,17 @@
-export const authResolver = {
+import { GraphQLResolverMap } from "apollo-graphql";
+import fetch from "node-fetch";
+
+const apiUrl = "http://localhost:3000";
+
+export const authResolver: GraphQLResolverMap = {
     Query: {
-        user() {
-            return { id: '1', username: '@user' }
+        user(_, { id }) {
+            return fetch(`${apiUrl}/users/${id}`).then(res => res.json());
         }
     },
     User: {
-        __resolveReference(
-            user: any,
-            { fetchUserById }: any
-        ) {
-            return fetchUserById(user.id);
+        __resolveReference(ref: any) {
+            return fetch(`${apiUrl}/users/${ref.id}`).then(res => res.json());
         }
     }
 }

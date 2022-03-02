@@ -1,0 +1,61 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "stephen",
+            "role": "user",
+            "campaigns": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "username": "pitra",
+            "role": "user",
+            "campaigns": [
+                4,
+                5
+            ]
+        },
+        {
+            "id": 3,
+            "username": "admin",
+            "role": "admin",
+            "campaigns": []
+        }
+    ],
+    "campaigns": [
+        {
+            "id": 1,
+            "name": "campaign no 1",
+            "startDate": "2021-04-04T12:00:01.000Z",
+            "endDate": "2021-05-04T21:57:21.000Z"
+        },
+        {
+            "id": 2,
+            "name": "campaign no 2",
+            "startDate": "2021-05-04T12:00:01.000Z",
+            "endDate": "2021-06-04T21:57:21.000Z"
+        },
+        {
+            "id": 3,
+            "name": "campaign no 3",
+            "startDate": "2021-04-04T12:00:01.000Z",
+            "endDate": "2021-05-04T21:57:21.000Z"
+        },
+        {
+            "id": 4,
+            "name": "campaign no 4",
+            "startDate": "2021-04-04T12:00:01.000Z",
+            "endDate": "2021-05-04T21:57:21.000Z"
+        },
+        {
+            "id": 5,
+            "name": "campaign no 5",
+            "startDate": "2021-04-04T12:00:01.000Z",
+            "endDate": "2021-05-04T21:57:21.000Z"
+        }
+    ]
+}
