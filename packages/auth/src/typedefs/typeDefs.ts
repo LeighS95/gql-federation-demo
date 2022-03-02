@@ -1,12 +1,19 @@
 import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
-    type Query {
-        user: User
+    extend type Query {
+        user(id: ID!): User
+        users: [User]
     }
 
     type User @key(fields: "id") {
         id: ID!
         username: String
+        role: String
+        projects: [Project]
+    }
+
+    extend type Project @key(fields: "id") {
+        id: ID! @external
     }
 `;
