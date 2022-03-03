@@ -4,6 +4,7 @@ export const typeDefs = gql`
     extend type Query {
         campaign(id: ID!): Campaign
         campaigns: [Campaign]
+        getUserCampaigns: [Campaign]
     }
 
     type Campaign @key(fields: "id") {

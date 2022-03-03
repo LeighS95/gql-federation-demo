@@ -7,6 +7,7 @@ export const typeDefs = gql`
         roles: [String]
         permissions: [String]
         projects: [Project]
+        campaigns: [String]
     }
 
     extend type Project @key(fields: "id") {
