@@ -1,46 +1,57 @@
 import { sign } from 'jsonwebtoken';
-import { accounts } from '../data/accounts';
+// import { accounts } from '../data/accounts';
+import { GraphQLResolverMap } from "apollo-graphql";
+import fetch from "cross-fetch";
 
 const apiUrl = "http://localhost:5000";
 
-export const authResolver = {
+export const authResolver: GraphQLResolverMap = {
     Account: {
-        __resolveReference(object:any) {
-            return accounts.find(account => account.id === object.id);
+        __resolveReference(object: any) {
+            // return accounts.find(account => account.id === object.id);
+            return fetch(`${apiUrl}/accounts/${object.id}`).then(res => res.json());
         },
-        projects(account:any) {
-            if (account.role === 'admin') return fetch(`${apiUrl}/projects`).then((res:any) => res.json());
+        projects(account: any) {
+            if (account.role === 'admin') return fetch(`${apiUrl}/projects`).then((res: any) => res.json());
 
             return account.projects.map((id: any) => ({ __typename: "Account", id }));
         }
     },
     Query: {
         account(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            return accounts.find(account => account.id === args.id ? account : null);
+            // return accounts.find(account => account.id === args.id ? account : null);
+            return fetch(`${apiUrl}/accounts/${args.id}`).then(res => res.json());
         },
         accounts() {
-            return accounts;
+            // return accounts;
+            return fetch(`${apiUrl}/accounts/`).then(res => res.json());
         },
     },
     Mutation: {
-        login(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+        async login(
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            const account = accounts.find(account => account.email === args.email && account.password === args.password);
+            return fetch(`${apiUrl}/accounts/`)
+                .then(res => res.json())
+                .then(accounts => {
+                    const account = accounts.find((account: any) => account.email === args.email && account.password === args.password)
 
-            if(!account) throw new Error('Account not found');
+                    if (!account) throw new Error('Account not found');
 
-            return {
-                token: sign({ ...account }, 'secret', { expiresIn: '1h' })
-            }
+                    return {
+                        token: sign({ ...account }, 'secret', { expiresIn: '1h' })
+                    }
+                });
+
+
         }
     }
 }

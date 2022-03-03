@@ -1,9 +1,17 @@
 {
-    "users": [
+    "accounts": [
         {
-            "id": 1,
-            "username": "stephen",
-            "role": "user",
+            "id": 3,
+            "name": "admin",
+            "email": "admin@email.com",
+            "password": "admin",
+            "roles": [
+                "admin"
+            ],
+            "permissions": [
+                "read:any_account",
+                "read:own_account"
+            ],
             "projects": [
                 1,
                 2
@@ -11,16 +19,30 @@
         },
         {
             "id": 2,
-            "username": "pitra",
-            "role": "user",
+            "name": "user1",
+            "email": "user1@email.com",
+            "password": "user1",
+            "roles": [
+                "user"
+            ],
+            "permissions": [
+                "read:own_account"
+            ],
             "projects": [
                 3
             ]
         },
         {
-            "id": 3,
-            "username": "admin",
-            "role": "admin",
+            "id": 1,
+            "name": "user2",
+            "email": "user2@email.com",
+            "password": "user2",
+            "roles": [
+                "user"
+            ],
+            "permissions": [
+                "read:own_account"
+            ],
             "projects": []
         }
     ],
