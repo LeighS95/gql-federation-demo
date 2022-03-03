@@ -1,56 +1,71 @@
-import { data } from "../data/data";
+// import { data } from "../data/data";
+import { GraphQLResolverMap } from "apollo-graphql";
+import fetch from "cross-fetch";
 import { checkJwt } from "../jwt/jwt";
 
-export const authResolver = {
+
+const apiUrl = "http://localhost:5000";
+
+
+export const authResolver: GraphQLResolverMap = {
     Query: {
         messages(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            const user:any = checkJwt(context.user);
+            const user: any = checkJwt(context.user);
 
-            if(!user.roles.includes('admin')) return new Error('Access Denied');
+            if (!user.roles.includes('admin')) return new Error('Access Denied');
 
-            return data;
+            return fetch(`${apiUrl}/messages`).then((res: any) => res.json());
         },
         getSentMessages(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            const user:any = checkJwt(context.user);
+            const user: any = checkJwt(context.user);
 
-            return data.filter(i => {
-                return i.sender === user.name
-            });
+            return fetch(`${apiUrl}/messages/`)
+                .then(res => res.json())
+                .then(messages => {
+
+                    return messages.filter((i: any) => {
+                        return i.sender === user.name
+                    });
+                });
+
         },
         getRecievedMessages(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            const user:any = checkJwt(context.user);
+            const user: any = checkJwt(context.user);
 
-            return data.filter(i => {
-                return i.reciever === user.name
-            });
+            return fetch(`${apiUrl}/messages/`)
+                .then(res => res.json())
+                .then(messages => {
+
+                    return messages.filter((i: any) => {
+                        return i.reciever === user.name
+                    });
+                });
+
+
         },
         message(
-            parent:any,
-            args:any,
-            context:any,
-            info:any
+            parent: any,
+            args: any,
+            context: any,
+            info: any
         ) {
-            return data.find(i => {
-                if(i.id !== args.id)
-                    return new Error('No Messages');
-                
-                return i;
-            });
+            return fetch(`${apiUrl}/messages/${args.id}`).then(res => res.json());
+
         }
     }
 }

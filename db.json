@@ -1,27 +1,59 @@
 {
-    "users": [
+    "accounts": [
         {
             "id": 1,
-            "username": "stephen",
-            "role": "user",
+            "name": "admin",
+            "email": "admin@email.com",
+            "password": "admin",
+            "roles": [
+                "admin"
+            ],
+            "permissions": [
+                "read:any_account",
+                "read:own_account"
+            ],
             "projects": [
                 1,
                 2
-            ]
-        },
-        {
-            "id": 2,
-            "username": "pitra",
-            "role": "user",
-            "projects": [
+            ],
+            "campaigns": [
+                1,
+                2,
                 3
             ]
         },
         {
+            "id": 2,
+            "name": "user1",
+            "email": "user1@email.com",
+            "password": "user1",
+            "roles": [
+                "user"
+            ],
+            "permissions": [
+                "read:own_account"
+            ],
+            "projects": [
+                3
+            ],
+            "campaigns": [
+                4,
+                5
+            ]
+        },
+        {
             "id": 3,
-            "username": "admin",
-            "role": "admin",
-            "projects": []
+            "name": "user2",
+            "email": "user2@email.com",
+            "password": "user2",
+            "roles": [
+                "user"
+            ],
+            "permissions": [
+                "read:own_account"
+            ],
+            "projects": [],
+            "campaigns": []
         }
     ],
     "campaigns": [
@@ -84,6 +116,26 @@
                 4,
                 5
             ]
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "sender": "user1",
+            "reciever": "user2",
+            "content": "Message 1"
+        },
+        {
+            "id": 2,
+            "sender": "user1",
+            "reciever": "user2",
+            "content": "Message2"
+        },
+        {
+            "id": 3,
+            "sender": "user1",
+            "reciever": "user3",
+            "content": "Message 3"
         }
     ]
 }
