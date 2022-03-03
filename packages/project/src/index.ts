@@ -10,7 +10,12 @@ const server = new ApolloServer({
             typeDefs,
             resolvers
         }
-    ])
+    ]),
+    context: ({ req }: any) => {
+        const user = req.headers.authorization || null;
+        return { user }
+    },
+    introspection: process.env.NODE_ENV !== 'production' ? true : false
 });
 
 server.listen(4002).then(({ url }) => {

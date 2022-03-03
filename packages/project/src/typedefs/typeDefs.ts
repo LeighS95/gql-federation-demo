@@ -4,6 +4,7 @@ export const typeDefs = gql`
     extend type Query {
         project(id: ID!): Project
         projects: [Project]
+        getUserProjects: [Project]
     }
 
     type Project @key(fields: "id") {
