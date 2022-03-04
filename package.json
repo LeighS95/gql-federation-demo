@@ -5,18 +5,20 @@
   "author": "Stephen Leigh",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently -k npm:start:*",
     "start:rest": "json-server -p 5000 -q db.json",
+    "start:gateway": "ts-node ./packages/gateway/src/index.ts",
     "start:auth": "ts-node ./packages/auth/src/index.ts",
+    "start:messaging": "ts-node ./packages/messaging-service/src/index.ts",
     "start:campaign": "ts-node ./packages/campaign/src/index.ts",
     "start:project": "ts-node ./packages/project/src/index.ts",
-    "start:gateway": "ts-node ./packages/gateway/src/index.ts"
+    "start-ui": "cd ./packages/ui && yarn start",
+    "start-all": "concurrently \"yarn start-auth\" \"yarn start-messaging\" \"yarn start-gateway\"",
+    "start": "concurrently -k yarn:start:*"
   },
   "dependencies": {
     "@apollo/gateway": "^0.42.3",
     "@apollo/subgraph": "^0.1.2",
     "apollo-server": "^3.4.0",
-    "concurrently": "^5.1.0",
     "cross-fetch": "^3.1.5",
     "gql": "^1.1.2",
     "graphql": "^15.6.1",
@@ -27,6 +29,7 @@
     "@types/graphql": "^14.5.0",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^16.11.1",
+    "concurrently": "^7.0.0",
     "lerna": "^4.0.0",
     "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
