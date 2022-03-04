@@ -11,6 +11,7 @@
     "start:messaging": "ts-node ./packages/messaging-service/src/index.ts",
     "start:campaign": "ts-node ./packages/campaign/src/index.ts",
     "start:project": "ts-node ./packages/project/src/index.ts",
+    "start-ui": "cd ./packages/ui && yarn start",
     "start-all": "concurrently \"yarn start-auth\" \"yarn start-messaging\" \"yarn start-gateway\"",
     "start": "concurrently -k yarn:start:*"
   },
@@ -18,7 +19,6 @@
     "@apollo/gateway": "^0.42.3",
     "@apollo/subgraph": "^0.1.2",
     "apollo-server": "^3.4.0",
-    "concurrently": "^5.1.0",
     "cross-fetch": "^3.1.5",
     "gql": "^1.1.2",
     "graphql": "^15.6.1",
