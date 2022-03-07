@@ -134,8 +134,26 @@
         {
             "id": 3,
             "sender": "user1",
-            "reciever": "user3",
+            "reciever": "admin",
             "content": "Message 3"
+        },
+        {
+            "id": 4,
+            "sender": "user2",
+            "reciever": "admin",
+            "content": "Message 4"
+        },
+        {
+            "id": 5,
+            "sender": "user2",
+            "reciever": "user1",
+            "content": "Message 5"
+        },
+        {
+            "id": 6,
+            "sender": "user2",
+            "reciever": "user1",
+            "content": "Message 6"
         }
     ]
 }
