@@ -3,7 +3,7 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 import { makeStyles } from "@material-ui/styles";
 
 const CAMPAIGNS_QUERY = gql`
-    query Campaigns {
+    query Query {
         campaigns {
             name
             from
@@ -33,6 +33,8 @@ const CampaignsTable = () => {
     const { loading, error, data } = useQuery(CAMPAIGNS_QUERY);
 
     console.log(data)
+
+    if(loading) return <h1>loading</h1>
 
     if(error) return (
         <Paper className={classes.root}>
