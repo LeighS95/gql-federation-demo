@@ -1,6 +1,8 @@
+import MessagesTable from "../components/MessagesTable";
+
 const MessagesPage = () => {
     return (
-        <h1>Messages Page</h1>
+        <MessagesTable />
     )
 }
 
